@@ -7,11 +7,7 @@ const btnCreateRef = document.querySelector("button[data-create]");
 const btnDestroyRef = document.querySelector("button[data-destroy]");
 const boxesRef = document.getElementById("boxes");
 
-btnCreateRef.addEventListener("click", () => {
-  const boxesToAdd = createBoxesEl(inputNumRef.value);
-  boxesRef.append(...boxesToAdd);
-});
-
+btnCreateRef.addEventListener("click", onBtnCreateClick);
 btnDestroyRef.addEventListener("click", destroyBoxes);
 
 function createBoxesEl(amount) {
@@ -25,6 +21,11 @@ function createBoxesEl(amount) {
     elementsToAdd.push(divEl);
   }
   return elementsToAdd;
+}
+
+function onBtnCreateClick() {
+  const boxesToAdd = createBoxesEl(inputNumRef.value);
+  boxesRef.append(...boxesToAdd);
 }
 
 function destroyBoxes() {
