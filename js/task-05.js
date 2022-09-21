@@ -11,7 +11,7 @@ function onInpytChange(event) {
 
   // ----------- якщо тернарником----------------------------
 
-  inputRef.value.trim() === ""
-    ? (nameOutputRef.innerHTML = "Anonymous")
-    : (nameOutputRef.textContent = event.currentTarget.value.trim());
+  nameOutputRef.textContent = event.currentTarget.value.trim()
+    ? event.currentTarget.value.trim()
+    : "Anonymus";
 }
