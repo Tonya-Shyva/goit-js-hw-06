@@ -1,35 +1,33 @@
-const inputValRef = document.getElementById("validation-input");
-const totalLenght = Number(inputValRef.dataset.length); // рядок приводимо до числа або parseInt(totalLenght, 10);
+const inputValue = document.getElementById("validation-input");
+const totalLenght = Number(inputValue.dataset.length); // рядок приводимо до числа або parseInt(totalLenght, 10);
 // -------------------------------------------------------------------
-// inputValRef.addEventListener("blur", onInput);
+// inputValue.addEventListener("blur", onInput);
 
 // function onInput(evt) {
-//   if (totalLenght === evt.target.value.length) {
-//     inputValRef.classList.add("valid");
-//     if (inputValRef.classList.contains("invalid")) {
-//       inputValRef.classList.remove("invalid");
+//   if (totalLenght === evt.target.trim().length) {
+//     inputValue.classList.add("valid");
+//     if (inputValue.classList.contains("invalid")) {
+//       inputValue.classList.remove("invalid");
 //     }
 //   } else {
-//     if (inputValRef.classList.contains("valid")) {
-//       inputValRef.classList.remove("valid");
+//     if (inputValue.classList.contains("valid")) {
+//       inputValue.classList.remove("valid");
 //     }
-//     inputValRef.classList.add("invalid");
+//     inputValue.classList.add("invalid");
 //   }
 // }
 // ----------------або------------------------------------------------
-inputValRef.oninput = function () {
-  if (inputValRef.value.length === totalLenght) {
-    inputValRef.classList.remove("invalid");
-    inputValRef.classList.add("valid");
+inputValue.oninput = function () {
+  const inputValueLength = inputValue.value.trim().length;
+  if (inputValueLength === totalLenght) {
+    inputValue.classList.remove("invalid");
+    inputValue.classList.add("valid");
   }
-  if (inputValRef.value.length === 0) {
-    inputValRef.classList.remove("valid");
-    inputValRef.classList.remove("invalid");
+  if (inputValueLength === 0) {
+    inputValue.classList.remove("valid");
+    inputValue.classList.remove("invalid");
   }
-  if (
-    inputValRef.value.length !== totalLenght &&
-    inputValRef.value.length !== 0
-  ) {
-    inputValRef.classList.add("invalid");
+  if (inputValueLength !== totalLenght && inputValueLength !== 0) {
+    inputValue.classList.add("invalid");
   }
 };
